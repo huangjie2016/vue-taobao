@@ -1,0 +1,28 @@
+{
+  "code": 0,
+  "productList": [
+    {
+      "name": "夏季宽松短袖T恤女韩版百搭学生半袖体恤夏装2017新款女装上衣服",
+      "sales": "3667",
+      "comment": "17398",
+      "integral": "24",
+      "price": "198",
+      "newPrice": "69.90",
+      "repertory": "132",
+      "bigPic":"../static/img/big31.jpg",
+      "sizeList":[
+        {"size": "M"},
+        {"size": "L"},
+        {"size": "XL"},
+        {"size": "XXL"}
+      ],
+      "smallPicList": [
+        {"img":"../static/img/big31.jpg"},
+        {"img":"../static/img/big32.jpg"},
+        {"img":"../static/img/big33.jpg"},
+        {"img":"../static/img/big34.jpg"},
+        {"img":"../static/img/big35.jpg"}
+      ]
+    }
+  ]
+}

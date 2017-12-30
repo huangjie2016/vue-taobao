@@ -1,0 +1,28 @@
+{
+  "code": 0,
+  "productList": [
+    {
+      "name": "恒源祥春秋长袖羊毛衫毛衣外搭V领大码短款针织衫女开衫上衣外套",
+      "sales": "521",
+      "comment": "3309",
+      "integral": "94",
+      "price": "1580",
+      "newPrice": "188",
+      "repertory": "265",
+      "bigPic":"../static/img/big21.jpg",
+      "sizeList":[
+        {"size": "160"},
+        {"size": "165"},
+        {"size": "170"},
+        {"size": "175"}
+      ],
+      "smallPicList": [
+        {"img":"../static/img/big21.jpg"},
+        {"img":"../static/img/big22.jpg"},
+        {"img":"../static/img/big23.jpg"},
+        {"img":"../static/img/big24.jpg"},
+        {"img":"../static/img/big25.jpg"}
+      ]
+    }
+  ]
+}

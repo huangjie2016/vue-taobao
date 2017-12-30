@@ -1,0 +1,28 @@
+{
+  "code": 0,
+  "productList": [
+    {
+      "name": "半高领中长款打底毛衣女套头冬装新款2017韩版长袖潮流开叉针织衫",
+      "sales": "1580",
+      "comment": "542",
+      "integral": "44",
+      "price": "150",
+      "newPrice": "89",
+      "repertory": "8554",
+      "bigPic":"../static/img/big11.jpg",
+      "sizeList":[
+        {"size": "s"},
+        {"size": "m"},
+        {"size": "l"},
+        {"size": "xl"}
+      ],
+      "smallPicList": [
+        {"img":"../static/img/big11.jpg"},
+        {"img":"../static/img/big12.jpg"},
+        {"img":"../static/img/big13.jpg"},
+        {"img":"../static/img/big14.jpg"},
+        {"img":"../static/img/big15.jpg"}
+      ]
+    }
+  ]
+}

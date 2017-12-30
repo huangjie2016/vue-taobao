@@ -1,0 +1,27 @@
+{
+  "code": 0,
+  "productList": [
+    {
+      "name": "恒源祥羊毛衫女高领套头秋冬款纯羊毛修身弹力针织百搭打底毛衣女",
+      "sales": "2053",
+      "comment": "21331",
+      "integral": "109",
+      "price": "1280",
+      "newPrice": "219",
+      "repertory": "652",
+      "bigPic":"../static/img/big1.jpg",
+      "sizeList":[
+        {"size": "155/95/S"},
+        {"size": "160/100/M"},
+        {"size": "165/105/L"}
+      ],
+      "smallPicList": [
+        {"img":"../static/img/big1.jpg"},
+        {"img":"../static/img/big2.jpg"},
+        {"img":"../static/img/big3.jpg"},
+        {"img":"../static/img/big4.jpg"},
+        {"img":"../static/img/big5.jpg"}
+      ]
+    }
+  ]
+}
