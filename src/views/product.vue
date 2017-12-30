@@ -6,7 +6,7 @@
   .center{
     width:976px;
     height:210px;
-    margin:50px auto;
+    margin:150px auto;
   }
   .products{
     width:220px;

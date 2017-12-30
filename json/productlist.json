@@ -6,7 +6,7 @@
       "name": "夏季宽松韩版百搭学生t恤",
       "sales": "1580",
       "comment": "542",
-      "newPrice": "89",
+      "newPrice": "89.00",
       "bigPic":"../static/img/big31.jpg",
       "tradeName": "时尚解放朵然专卖店"
     },
@@ -15,7 +15,7 @@
       "name": "恒源祥高领套头秋冬款针织打底羊毛衫",
       "sales": "2062",
       "comment": "21331",
-      "newPrice": "219",
+      "newPrice": "219.00",
       "bigPic":"../static/img/big2.jpg",
       "tradeName": "恒源祥风度专卖店"
     },
@@ -24,7 +24,7 @@
       "name": "恒源祥春秋外搭v领大码羊毛衫",
       "sales": "521",
       "comment": "3309",
-      "newPrice": "188",
+      "newPrice": "188.00",
       "bigPic":"../static/img/big21.jpg",
       "tradeName": "恒源祥羽绒服饰旗舰店"
     },
