@@ -6,7 +6,8 @@ npm install
 npm run dev
 
 <br/>
-# 日常坑记录
+# 日常填坑记录
+<br/>
 1.路由参数传递
 <br/>
 this.$router.push({'name':'routerName', params: {id:id}});url = /routerName/id
