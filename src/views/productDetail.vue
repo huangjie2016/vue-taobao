@@ -37,6 +37,7 @@
     width:69px;
     margin-left:8px;
     display:inline-block;
+    vertical-align: top;
   }
   .txt-style{
     color:#333;
@@ -48,14 +49,17 @@
     font-size:30px;
   }
   .center .right .price{
+    margin-top:18px;
     height:24px;
     line-height:24px;
   }
   .center .right .new-price{
+    margin-top:10px;
     height:36px;
     line-height:36px;
   }
   .integral{
+    margin-top:10px;
     height:38px;
     line-height:38px;
     border-top:1px dotted #ccc;
@@ -82,14 +86,16 @@
     margin-right:10px;
     cursor:pointer;
   }
-  .border-red{
+  .container .border-red{
     border: 1px solid #ff0036;
   }
   .size{
+    margin-top:16px;
     height:30px;
-    line-height:30px;
+    line-height:26px;
   }
   .color-classification{
+    margin-top:10px;
     height:52px;
     line-height:52px;
   }
@@ -101,6 +107,44 @@
     cursor:pointer;
     display:inline-block;
     vertical-align: middle;
+  }
+  .number{
+    margin-top:14px;
+  }
+  .repertory{
+    margin-top:12px;
+    height:30px;
+    line-height:30px;
+  }
+  .buy{
+    width:180px;
+    height:40px;
+    line-height:40px;
+    border:1px solid #ff0036;
+    background:#ffeded;
+    color:#ff0036;
+    text-align:center;
+    float:left;
+    margin: 39px 20px 0 81px;
+    cursor:pointer;
+    font-size:16px;
+  }
+  .buy-car{
+    width:180px;
+    height:40px;
+    line-height:40px;
+    background:#ff0036;
+    color:#fff;
+    float:left;
+    margin-top:39px;
+    border:1px solid #ff0036;
+    cursor:pointer;
+    font-size:16px;
+  }
+  .buy:hover,.buy-car:hover{
+    color:#fff;
+    background:orange;
+    border:1px solid yellow;
   }
 
 </style>
@@ -126,21 +170,26 @@
         <div>
           <p class="size">
             <span class="color">尺码</span>
-            <span v-for="sizeList in item.sizeList">
-              <span class="size-style" :class="{'border-red': active}">{{sizeList.size}}</span>
+            <span v-for="(sizeList,index) in item.sizeList">
+              <span class="size-style"  :class="{'border-red' : active === index}" @click="getActive(sizeList,index)">{{sizeList.size}}</span>
             </span>
           </p>
           <p class="color-classification">
             <span class="color">颜色分类</span>
-            <span v-for="smallPicList in item.smallPicList">
-              <img class="small-img-style" :src="smallPicList.img" />
+            <span v-for="(smallPicList,index) in item.smallPicList">
+              <img class="small-img-style" :class="{'border-red' : activePic === index}" @click="changeBigImg(index,smallPicList.img)" :src="smallPicList.img" />
             </span>
           </p>
           <p class="number">
             <span class="color">数量</span>
-            <input type="number" value="1" />
+            <input type="number" value="1" v-model="number"/>
           </p>
-
+          <p class="repertory">
+            <span class="color">库存</span>
+            <span>{{item.repertory}}件</span>
+          </p>
+          <button class="buy" @click="toCar()">立即购买</button>
+          <button class="buy-car" @click="toCar()">加入购物车</button>
         </div>
       </div>
     </div>
@@ -153,13 +202,34 @@
       return {
         product: [],
         id: this.$route.params.id,
-        active: false
+        active: false,
+        activePic: false,
+        number: 1,
+        size: '',
+        img: ''
       }
     },
     mounted() {
       this.getProductDetail();
     },
     methods: {
+      getActive(sizeList,index){
+        this.active = index;
+        this.size = sizeList.size;
+      },
+      changeBigImg(index, smallImg){
+        this.activePic = index;
+        this.img = smallImg;
+        this.product.map(function(e){
+          e.bigPic = smallImg;
+        })
+      },
+      toCar(){
+        console.log(this.size,this.img);
+        if((this.number < 1) || (this.size === '') || (this.img === '')){
+          alert('请认真商品规格~')
+        }
+      },
       getProductDetail() {
         console.log(this.id);
         this.$http.get('../../json/product'+ this.id + '.json')
