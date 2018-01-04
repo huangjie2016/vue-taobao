@@ -82,15 +82,45 @@
   .delete button{
     cursor:pointer;
   }
+  .title span{ display:inline-block;}
+  .title1{ width:390px; }
+  .title2{ width:150px; margin-left:60px;}
+  .title3{ width:150px; }
+  .title4{ width:100px; margin-left:30px;}
+  .footer{
+    text-align:right;
+  }
+  .count-price{
+    font-size:16px;
+    color:#ff0036;
+  }
+  .account{
+    width:120px;
+    height:50px;
+    margin-left:6px;
+    line-height:50px;
+    text-align:center;
+    cursor:pointer;
+    border:none;
+    outline:none;
+    display:inline-block;
+    font-size:20px;
+    background:#ff0036;
+    color:#fff;
+  }
+  .is-dis{
+    cursor: not-allowed;
+    background:#7d7d7d;
+  }
 </style>
 <template>
   <div class="buy-car">
     <div class="title">
-      <span>商品信息</span>
-      <span>单价</span>
-      <span>数量</span>
-      <span>金额</span>
-      <span>操作</span>
+      <span class="title1">商品信息</span>
+      <span class="title2">单价</span>
+      <span class="title3">数量</span>
+      <span class="title4">金额</span>
+      <span class="title5">操作</span>
     </div>
     <div class="item" v-for="item in buyCarList">
       <div class="fl img">
@@ -110,11 +140,15 @@
         <span class="number-btn" @click="reduceNum(item)">-</span><input type="text" v-model="item.number" /><span @click="addNum(item)" class="number-btn">+</span>
       </div>
       <div class="fl count">
-        <span>￥{{parseInt(item.newPrice * item.number)}}</span>
+        ￥<span class="price">{{(item.newPrice * item.number).toFixed(2)}}</span>
       </div>
       <div class="fl delete">
         <button @click="deleteItem(item.productNum)">删除</button>
       </div>
+    </div>
+    <div class="footer">
+      <span>合计： <span class="count-price">￥{{count.toFixed(2)}}</span></span>
+      <input type="button" class="account" :class="{'is-dis':count == 0}" value="结算" :disabled="count == 0" />
     </div>
   </div>
 </template>
@@ -132,6 +166,13 @@
         set: function(newValue){
           this.$store.state.car = newValue;
         }
+      },
+      count() {
+        let price = 0;
+        for(var i=0; i<this.$store.state.car.length; i++){
+          price += this.$store.state.car[i].newPrice * this.$store.state.car[i].number
+        }
+        return price;
       }
     },
     methods: {

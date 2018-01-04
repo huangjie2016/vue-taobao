@@ -4,14 +4,14 @@
     {
       "id": 1,
       "number":1,
-      "name": "半高领中长款打底毛衣女套头冬装新款2017韩版长袖潮流开叉针织衫",
+      "name": "夏季宽松短袖T恤女韩版百搭学生半袖体恤夏装2017新款女装上衣服",
       "sales": "1580",
       "comment": "542",
       "integral": "44",
       "price": "150.00",
       "newPrice": "89.00",
       "repertory": "8554",
-      "bigPic":"../static/img/big11.jpg",
+      "bigPic":"../static/img/big31.jpg",
       "sizeList":[
         {"size": "s"},
         {"size": "m"},
@@ -19,11 +19,11 @@
         {"size": "xl"}
       ],
       "smallPicList": [
-        {"img":"../static/img/big11.jpg"},
-        {"img":"../static/img/big12.jpg"},
-        {"img":"../static/img/big13.jpg"},
-        {"img":"../static/img/big14.jpg"},
-        {"img":"../static/img/big15.jpg"}
+        {"img":"../static/img/big31.jpg"},
+        {"img":"../static/img/big32.jpg"},
+        {"img":"../static/img/big33.jpg"},
+        {"img":"../static/img/big34.jpg"},
+        {"img":"../static/img/big35.jpg"}
       ]
     }
   ]
