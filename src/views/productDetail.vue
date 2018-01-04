@@ -189,7 +189,7 @@
             <span>{{item.repertory}}件</span>
           </p>
           <button class="buy" @click="toCar()">立即购买</button>
-          <button class="buy-car" @click="toCar()">加入购物车</button>
+          <button class="buy-car" @click="toCar(item)">加入购物车</button>
         </div>
       </div>
     </div>
@@ -224,17 +224,24 @@
           e.bigPic = smallImg;
         })
       },
-      toCar(){
-        console.log(this.size,this.img);
+      toCar(item){
         if((this.number < 1) || (this.size === '') || (this.img === '')){
-          alert('请认真商品规格~')
+          alert('请认真商品规格~');
+          return false;
         }
+        this.$store.commit('getProductNum', 1);
+        // 获取当前的订单信息，再加上购物车页面需要的参数，赋给state.car
+        item.size = this.size;
+        item.img = this.img;
+        item.number = this.number;
+        item.productNum = this.$store.state.productNum;
+        console.log(item.productNum);
+        this.$store.commit('addCar', item);
+        this.$router.push({'path': '/buyCar'});
       },
       getProductDetail() {
-        console.log(this.id);
         this.$http.get('../../json/product'+ this.id + '.json')
           .then((res) => {
-          console.log(res);
             if(res.data.code === 0) {
               this.product = res.data.productList;
             }

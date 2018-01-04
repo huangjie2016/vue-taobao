@@ -1,0 +1,153 @@
+<style scoped>
+  .fl{float:left;}
+  .buy-car{
+    width: 976px;
+    height:auto;
+    margin:0 auto;
+  }
+  .title{
+    height:60px;
+    line-height:60px;
+    font-size:16px;
+    font-weight:bold;
+  }
+  .item{
+    height: 80px;
+    line-height:80px;
+    border:1px solid #ccc;
+    margin-bottom:20px;
+  }
+  .item:hover{
+    border:1px solid orange;
+    background:#D5FFFD;
+  }
+  .img,.img img{
+    width:80px;
+    height:80px;
+  }
+  .name{
+    height:60px;
+    margin-top:10px;
+    margin-left:30px;
+    overflow:hidden;
+  }
+  .name,.name span{
+    width: 220px;
+    line-height:30px;
+    text-align:left;
+  }
+  .size{
+    width:90px;
+    margin-left:50px;
+    color: #7d7d7d;
+  }
+  .price{
+    height:60px;
+    margin-top:10px;
+    line-height:30px;
+    width:150px;
+  }
+  .price span{
+    color:#9c9c9c;
+  }
+  .price .new-color{
+    color:#000;
+    font-size:14px;
+  }
+  .number{
+    width:180px;
+  }
+  .number-btn{
+    width:19px;
+    height:28px;
+    background:#ccc;
+    display:inline-block;
+    line-height:28px;
+    vertical-align: middle;
+    cursor:pointer;
+    font-size:14px;
+  }
+  .number input{
+    width:40px;
+    height:24px;
+    display:inline-block;
+    vertical-align: middle;
+    text-align:center;
+  }
+  .count{
+    width:120px;
+    color:#ff0036;
+    font-size:16px;
+  }
+  .delete button{
+    cursor:pointer;
+  }
+</style>
+<template>
+  <div class="buy-car">
+    <div class="title">
+      <span>商品信息</span>
+      <span>单价</span>
+      <span>数量</span>
+      <span>金额</span>
+      <span>操作</span>
+    </div>
+    <div class="item" v-for="item in buyCarList">
+      <div class="fl img">
+        <img :src="item.img" />
+      </div>
+      <div class="fl name">
+        <span>{{item.name}}</span>
+      </div>
+      <div class="fl size">
+        <span>{{item.size}}</span>
+      </div>
+      <div class="fl price">
+        <span><s>￥{{item.price}}</s></span><br/>
+        <span class="new-color">￥{{item.newPrice}}</span>
+      </div>
+      <div class="fl number">
+        <span class="number-btn" @click="reduceNum(item)">-</span><input type="text" v-model="item.number" /><span @click="addNum(item)" class="number-btn">+</span>
+      </div>
+      <div class="fl count">
+        <span>￥{{parseInt(item.newPrice * item.number)}}</span>
+      </div>
+      <div class="fl delete">
+        <button @click="deleteItem(item.productNum)">删除</button>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  export default{
+    data(){
+      return {
+      }
+    },
+    computed: {
+      buyCarList: {
+        get: function() {
+          return this.$store.state.car
+        },
+        set: function(newValue){
+          this.$store.state.car = newValue;
+        }
+      }
+    },
+    methods: {
+      reduceNum(item) {
+        if(item.number > 0){
+          item.number--;
+          this.$store.commit('changeNumber', item);
+        }
+      },
+      addNum(item) {
+        item.number++;
+        this.$store.commit('changeNumber', item);
+      },
+      deleteItem(productNum) {
+        this.$store.commit('deleteProduct', productNum);
+      }
+    }
+  }
+</script>

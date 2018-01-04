@@ -22,4 +22,4 @@ this.$router.push({'path':'/routerpath', query: {id:id}}); url = /routerpath?id=
 <br/>
 3.动态改变class
 <br/>
-html `:class="{'class-name' : active == index}"`  js `this.active = index;`
+html `:class="{'class-name' : active === index}"`  js `this.active = index;`
