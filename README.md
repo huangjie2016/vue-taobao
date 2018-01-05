@@ -25,7 +25,7 @@ this.$router.push({'name':'routerName', params: {id:id}}); url = /routerName/id
 this.$router.push({'path':'/routerpath', query: {id:id}}); url = /routerpath?id=id
 <br/>
 <br/>
-2.css等静态资源引入index的时候要写安全路劲
+2.css等静态资源引入index的时候要写安全路径
 <br/>
 ` href="../static/css/reset.css" `，这样跳转到任何页面手动刷新页面也不会加载失败
 <br/>
