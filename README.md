@@ -4,6 +4,8 @@ vue2+vuex+vue-router+axios
 npm install
 <br/>
 npm run dev
+<br/>
+启动路径：http://localhost:8082
 
 <br/>
 # 日常更新记录
