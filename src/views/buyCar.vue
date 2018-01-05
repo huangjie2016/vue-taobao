@@ -112,6 +112,47 @@
     cursor: not-allowed;
     background:#7d7d7d;
   }
+  .dialog{
+    position:absolute;
+    margin:0 auto;
+    top:100px;
+    left:0;
+    right:0;
+    bottom:0;
+    width:300px;
+    height:200px;
+    background:#000;
+    opacity:.8;
+    filter:alpha(opacity=80);
+    color:#fff;
+    border-radius:5px;
+  }
+  .dialog-tit{
+    height:28px;
+    line-height:28px;
+    border-bottom:1px solid #ccc;
+  }
+  .dialog-main p{
+    margin-top:30px;
+    height:40px;
+    line-height:40px;
+    color:orangered;
+    font-size:16px;
+  }
+  .dialog-main button{
+    margin-top:15px;
+    width:60px;
+    height:30px;
+    line-height:30px;
+    font-size:16px;
+    background:#ff0036;
+    color:#fff;
+    display:inline-block;
+    text-align:center;
+    cursor:pointer;
+    border:none;
+    border-radius:3px;
+  }
 </style>
 <template>
   <div class="buy-car">
@@ -148,7 +189,15 @@
     </div>
     <div class="footer">
       <span>合计： <span class="count-price">￥{{count.toFixed(2)}}</span></span>
-      <input type="button" class="account" :class="{'is-dis':count == 0}" value="结算" :disabled="count == 0" />
+      <input type="button" @click="buyProduct(count)" class="account" :class="{'is-dis':count == 0}" value="结算" :disabled="count == 0" />
+    </div>
+    <div class="dialog" v-if="dialog">
+      <p class="dialog-tit">订单信息</p>
+      <div class="dialog-main">
+        <p>下单成功！</p>
+        <span>我们会尽快为您安排送货~</span><br/>
+        <button @click="overProduct()">确定</button>
+      </div>
     </div>
   </div>
 </template>
@@ -156,6 +205,7 @@
   export default{
     data(){
       return {
+        dialog: false
       }
     },
     computed: {
@@ -188,6 +238,15 @@
       },
       deleteItem(productNum) {
         this.$store.commit('deleteProduct', productNum);
+      },
+      buyProduct(count) {
+        if(count > 0){
+          this.dialog = true;
+        }
+      },
+      overProduct() {
+        this.$store.state.car = [];
+        this.$router.push('/');
       }
     }
   }
